@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7811806d065c9af019810c38384be6ec",
+    "content-hash": "8af41685b1876507095e9f0341f56f2c",
     "packages": [
         {
             "name": "cfxmarkets/php-cfx-base",
-            "version": "v0.2.0",
+            "version": "v0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-cfx-base.git",
-                "reference": "f41a83730d02c3a425bed7eb21090741961d907e"
+                "reference": "be09428f5431c63d7e585ad0fe5e066d0a56693c"
             },
             "require": {
                 "kael-shipman/php-jsonapi-objects": "~0.8.0",
@@ -46,7 +46,51 @@
                 "cfx",
                 "cfxmarkets"
             ],
-            "time": "2017-10-11T01:18:07+00:00"
+            "time": "2017-10-11T09:04:46+00:00"
+        },
+        {
+            "name": "cfxmarkets/php-sdk-base",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cfxmarkets/php-sdk-base.git",
+                "reference": "0e13aed60b161317efcf1720af3405a204ae4dc5"
+            },
+            "require": {
+                "cfxmarkets/php-cfx-base": "~0.2.3",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "phpunit/phpunit": ">=4.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CFX\\SDK\\": "src/"
+                },
+                "files": [
+                    "src/Exceptions.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CFX and contributors",
+                    "homepage": "https://github.com/cfxmarkets/php-sdk-base/graphs/contributors"
+                }
+            ],
+            "description": "A base package for CFX Public SDKs",
+            "keywords": [
+                "api",
+                "cfx",
+                "cfxmarkets",
+                "client",
+                "sdk"
+            ],
+            "time": "2017-10-11T09:06:59+00:00"
         },
         {
             "name": "kael-shipman/php-jsonapi-objects",
