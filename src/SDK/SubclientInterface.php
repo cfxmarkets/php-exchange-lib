@@ -1,5 +1,5 @@
 <?php
-namespace CFX\SDK\Exchange;
+namespace CFX\SDK;
 
 interface SubclientInterface {
     /**
@@ -34,7 +34,7 @@ interface SubclientInterface {
      *
      * @throws \CFX\ResourceNotFoundException
      */
-    public function get($q='');
+    public function get($q=null);
 
     /**
      * delete -- Delete a resource
