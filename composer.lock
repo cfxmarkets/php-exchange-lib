@@ -4,24 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8af41685b1876507095e9f0341f56f2c",
+    "content-hash": "6179d84980b4f3f667dbecbef1cca369",
     "packages": [
         {
-            "name": "cfxmarkets/php-cfx-base",
-            "version": "v0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cfxmarkets/php-cfx-base.git",
-                "reference": "be09428f5431c63d7e585ad0fe5e066d0a56693c"
+            "name": "cfxmarkets/php-cfx-framework",
+            "version": "dev-dev-v2",
+            "dist": {
+                "type": "path",
+                "url": "../new-data-model/php-cfx-framework",
+                "reference": "c8d40dcf589dfd05448c6ad4cf0a647dd03d37b6",
+                "shasum": null
             },
             "require": {
-                "kael-shipman/php-jsonapi-objects": "~0.8.0",
-                "kael-shipman/php-std-traits": "~3.2",
-                "php": ">=5.4.0"
+                "guzzlehttp/psr7": "~1.4.3",
+                "kael-shipman/php-jsonapi-objects": "dev-dev-v2 as 1.0.0",
+                "kael-shipman/php-jsonapi-transport": "dev-dev-v2 as 0.4.0",
+                "kael-shipman/php-std-traits": "~3.2.1",
+                "php": ">=5.4.0 <7"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "~5.0",
-                "phpunit/phpunit": ">=4.8.0"
+                "phpunit/phpunit": "~4.8.0"
             },
             "type": "library",
             "autoload": {
@@ -33,44 +36,53 @@
                 ]
             },
             "license": [
-                "Proprietary"
+                "MIT"
             ],
             "authors": [
                 {
                     "name": "CFX and contributors",
-                    "homepage": "https://github.com/cfxmarkets/php-cfx-base/graphs/contributors"
+                    "homepage": "https://github.com/cfxmarkets/php-api-service/graphs/contributors"
                 }
             ],
-            "description": "A general set of base classes that other CFX libraries can extend",
+            "description": "This package provides the public framework objects that CFX uses to build its system.",
             "keywords": [
+                "api",
+                "brokerage",
                 "cfx",
-                "cfxmarkets"
-            ],
-            "time": "2017-10-11T09:04:46+00:00"
+                "exchange",
+                "framework"
+            ]
         },
         {
-            "name": "cfxmarkets/php-sdk-base",
-            "version": "v0.2.1",
+            "name": "guzzlehttp/psr7",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cfxmarkets/php-sdk-base.git",
-                "reference": "0e13aed60b161317efcf1720af3405a204ae4dc5"
+                "url": "https://github.com/kael-shipman/psr7.git",
+                "reference": "5e9b4ad6f43383b4a9a1005139149c0a07df805a"
             },
             "require": {
-                "cfxmarkets/php-cfx-base": "~0.2.3",
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "guzzlehttp/guzzle": "~5.0",
-                "phpunit/phpunit": ">=4.8.0"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "CFX\\SDK\\": "src/"
+                    "GuzzleHttp\\Psr7\\": "src/"
                 },
                 "files": [
-                    "src/Exceptions.php"
+                    "src/functions_include.php"
                 ]
             },
             "license": [
@@ -78,27 +90,34 @@
             ],
             "authors": [
                 {
-                    "name": "CFX and contributors",
-                    "homepage": "https://github.com/cfxmarkets/php-sdk-base/graphs/contributors"
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
-            "description": "A base package for CFX Public SDKs",
+            "description": "PSR-7 message implementation that also provides common utility methods",
             "keywords": [
-                "api",
-                "cfx",
-                "cfxmarkets",
-                "client",
-                "sdk"
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
             ],
-            "time": "2017-10-11T09:06:59+00:00"
+            "time": "2017-09-21T18:27:12+00:00"
         },
         {
             "name": "kael-shipman/php-jsonapi-objects",
-            "version": "v0.8.0",
+            "version": "dev-dev-v2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
-                "reference": "fb7f8bb641d4502d4febe90f6251d5d3b5521b94"
+                "reference": "d7382ead1b8e361674a02e321b231486e9b36671"
             },
             "require": {
                 "kael-shipman/php-std-traits": "~3.2",
@@ -111,7 +130,10 @@
             "autoload": {
                 "psr-4": {
                     "KS\\JsonApi\\": "src/"
-                }
+                },
+                "files": [
+                    "src/Exceptions.php"
+                ]
             },
             "license": [
                 "MIT"
@@ -130,15 +152,59 @@
                 "json",
                 "jsonapi"
             ],
-            "time": "2017-10-06T20:51:09+00:00"
+            "time": "2017-10-17T14:59:18+00:00"
+        },
+        {
+            "name": "kael-shipman/php-jsonapi-transport",
+            "version": "dev-dev-v2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cfxmarkets/php-jsonapi-transport.git",
+                "reference": "1915668edc2190d414eb20c2459b8f32ce11dbd9"
+            },
+            "require": {
+                "guzzlehttp/psr7": "~1.4.2",
+                "kael-shipman/php-jsonapi-objects": "dev-dev-v2 as 1.0.0",
+                "php": ">=5.4 <7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KS\\JsonApi\\": "src/"
+                },
+                "files": [
+                    "src/Exceptions.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kael Shipman",
+                    "homepage": "https://colors.kaelshipman.me"
+                }
+            ],
+            "description": "This package implements the JSON-API transport protocol specification (i.e., it enforces certain request and response parameters).",
+            "keywords": [
+                "api",
+                "json api",
+                "json-api",
+                "jsonapi",
+                "rest"
+            ],
+            "time": "2017-10-17T15:01:47+00:00"
         },
         {
             "name": "kael-shipman/php-std-traits",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-std-traits.git",
-                "reference": "a1183972b0291cb22907e28bee4bf82da51b6fb3"
+                "reference": "996327e11ffbae9ac06b918d9a78e109d14a6a00"
             },
             "require": {
                 "php": ">=5.4.0 < 7"
@@ -175,7 +241,7 @@
             "keywords": [
                 "traits"
             ],
-            "time": "2017-09-15T22:48:30+00:00"
+            "time": "2017-10-16T04:03:38+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1392,9 +1458,32 @@
             "time": "2017-10-05T14:38:30+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-dev-v2",
+            "package": "kael-shipman/php-jsonapi-objects"
+        },
+        {
+            "alias": "0.4.0",
+            "alias_normalized": "0.4.0.0",
+            "version": "dev-dev-v2",
+            "package": "kael-shipman/php-jsonapi-transport"
+        },
+        {
+            "alias": "0.1.0",
+            "alias_normalized": "0.1.0.0",
+            "version": "dev-dev-v2",
+            "package": "cfxmarkets/php-cfx-framework"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kael-shipman/php-jsonapi-objects": 20,
+        "kael-shipman/php-jsonapi-transport": 20,
+        "cfxmarkets/php-cfx-framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
