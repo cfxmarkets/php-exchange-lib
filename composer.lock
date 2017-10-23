@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c72b2d4f6a8c6208438997b073c63ccf",
+    "content-hash": "b4770cb72ad76c0bd87dd9cc99202bd6",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
@@ -1413,10 +1413,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "cfxmarkets/php-persistence": 20,
-        "cfxmarkets/php-public-models": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
