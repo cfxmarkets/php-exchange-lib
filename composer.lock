@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "29040671bfe2ac3d6a1cfc531c327e9c",
+    "content-hash": "c72b2d4f6a8c6208438997b073c63ccf",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../php-jsonapi-objects",
-                "reference": "7f4fd36e62bdf2ef86a8b1837df736ddb5a6b744",
+                "reference": "b70d1eb93ba2da8b1dc97d45785da4b833146d6a",
                 "shasum": null
             },
             "require": {
@@ -57,8 +57,8 @@
             "version": "dev-dev-v2",
             "dist": {
                 "type": "path",
-                "url": "../new-data-model/php-persistence",
-                "reference": "23ab41a5e311cc2c9777062c8131c1a38d23c940",
+                "url": "../php-persistence",
+                "reference": "6b90eb47fc5a5a85dffa12ed2fb70bb2ce3cb1e8",
                 "shasum": null
             },
             "require": {
@@ -67,6 +67,7 @@
                 "php": ">=5.4"
             },
             "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
                 "phpunit/phpunit": ">=4.8.0"
             },
             "type": "library",
@@ -77,7 +78,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "CFX\\": "src/"
+                    "CFX\\Persistence\\": "src/"
                 },
                 "files": [
                     "src/Exceptions.php"
@@ -106,8 +107,8 @@
             "version": "dev-dev-v2",
             "dist": {
                 "type": "path",
-                "url": "../new-data-model/php-public-models",
-                "reference": "b92db55ab6369bbab27309c584c590c62b84eeac",
+                "url": "../php-public-models",
+                "reference": "5d53ede144f151a6106266b93e107517f9505546",
                 "shasum": null
             },
             "require": {
