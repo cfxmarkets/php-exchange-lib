@@ -10,18 +10,17 @@
             "homepage": "https://github.com/cfxmarkets/php-exchange-sdk/graphs/contributors"
         }
     ],
+    "minimum-stability": "dev",
     "require" : {
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
-        "cfxmarkets/php-cfx-framework": "~0.1.0"
+        "cfxmarkets/php-persistence": "0.1.x-dev",
+        "cfxmarkets/php-public-models": "0.1.x-dev"
     },
     "require-dev" : {
         "phpunit/phpunit" : "~4.8.0",
         "guzzlehttp/guzzle" : "~5.0",
-
-        "kael-shipman/php-jsonapi-objects": "dev-dev-v2 as 1.0.0",
-        "kael-shipman/php-jsonapi-transport": "dev-dev-v2 as 0.4.0",
-        "cfxmarkets/php-cfx-framework": "dev-dev-v2 as 0.1.0"
+        "kael-shipman/php-std-traits": "~3.2.1"
     },
     "autoload" : {
         "psr-4" : {
@@ -31,23 +30,19 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../new-data-model/php-cfx-framework"
+            "url": "../new-data-model/php-persistence"
         },
         {
             "type": "path",
-            "url": "../new-data-model/php-cfx-public-models"
+            "url": "../new-data-model/php-public-models"
+        },
+        {
+            "type": "path",
+            "url": "../php-jsonapi-objects"
         },
         {
             "type": "git",
             "url": "https://github.com/cfxmarkets/php-std-traits.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/cfxmarkets/php-jsonapi-transport.git"
         },
         {
             "type": "git",

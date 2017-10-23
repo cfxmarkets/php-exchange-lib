@@ -1,11 +1,11 @@
 <?php
 namespace CFX\SDK\Exchange;
 
-class AssetsClient extends \CFX\SDK\AbstractApiDatasource {
+class AssetsClient extends AbstractDatasource {
     protected static $resourceType = 'assets';
 
-    public function create($data=null) {
-        return new \CFX\Asset($this, $data);
+    public function create(array $data=null) {
+        return new \CFX\Exchange\Asset($this, $data);
     }
 
     public function get($q=null) {
@@ -22,7 +22,10 @@ class AssetsClient extends \CFX\SDK\AbstractApiDatasource {
         $r = $this->sendRequest('GET', $endpoint, $opts);
         $obj = $this->convertV1Data(json_decode($r->getBody(), true), $isCollection);
 
-        return $this->inflateData($obj, $isCollection);
+        if (!$isCollection) $obj = [$obj];
+        $resource = $this->inflateData($obj, $isCollection);
+
+        return $resource;
     }
 
     protected function convertV1Data($assets, $isCollection) {
@@ -31,6 +34,7 @@ class AssetsClient extends \CFX\SDK\AbstractApiDatasource {
         foreach ($assets as $asset) {
             $data[] = [
                 'id' => $asset['asset_symbol'],
+                'type' => static::$resourceType,
                 'attributes' => [
                     'issuer' => $asset['issuer_ident'],
                     'name' => $asset['asset_name'],
