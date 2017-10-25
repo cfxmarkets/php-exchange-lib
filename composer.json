@@ -29,16 +29,16 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "../php-persistence"
+            "type": "git",
+            "url": "git@github.com:cfxmarkets/php-persistence.git"
         },
         {
             "type": "path",
             "url": "../php-public-models"
         },
         {
-            "type": "path",
-            "url": "../php-jsonapi-objects"
+            "type": "git",
+            "url": "git@github.com:cfxmarkets/php-jsonapi-objects.git"
         },
         {
             "type": "git",
