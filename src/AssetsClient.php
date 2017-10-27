@@ -1,8 +1,8 @@
 <?php
 namespace CFX\SDK\Exchange;
 
-class AssetsClient extends AbstractDatasource {
-    protected static $resourceType = 'assets';
+class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
+    protected $resourceType = 'assets';
 
     public function create(array $data=null) {
         return new \CFX\Exchange\Asset($this, $data);
@@ -10,7 +10,7 @@ class AssetsClient extends AbstractDatasource {
 
     public function get($q=null) {
         $opts = [];
-        $endpoint = "/".static::$resourceType;
+        $endpoint = "/".$this->resourceType;
         if ($q) {
             if (substr($q, 0, 3) != 'id=' || strpos($q, ' ') !== false) throw new \RuntimeException("Programmer: for now, only id queries are accepted. Please pass `id=[asset-symbol]` if you'd like to query a specific asset. Otherwise, just get all assets and filter them yourself.");
             $isCollection = false;
@@ -34,7 +34,7 @@ class AssetsClient extends AbstractDatasource {
         foreach ($assets as $asset) {
             $data[] = [
                 'id' => $asset['asset_symbol'],
-                'type' => static::$resourceType,
+                'type' => $this->resourceType,
                 'attributes' => [
                     'issuer' => $asset['issuer_ident'],
                     'name' => $asset['asset_name'],
