@@ -1,12 +1,16 @@
 <?php
 namespace CFX\SDK\Exchange;
 
-class AssetsClient extends \CFX\SDK\BaseSubclient {
-    protected static $resourceType = 'assets';
+class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
+    protected $resourceType = 'assets';
+
+    public function create(array $data=null, $type = null) {
+        return new \CFX\Exchange\Asset($this, $data);
+    }
 
     public function get($q=null) {
         $opts = [];
-        $endpoint = "/".static::$resourceType;
+        $endpoint = "/".$this->resourceType;
         if ($q) {
             if (substr($q, 0, 3) != 'id=' || strpos($q, ' ') !== false) throw new \RuntimeException("Programmer: for now, only id queries are accepted. Please pass `id=[asset-symbol]` if you'd like to query a specific asset. Otherwise, just get all assets and filter them yourself.");
             $isCollection = false;
@@ -15,20 +19,36 @@ class AssetsClient extends \CFX\SDK\BaseSubclient {
             $isCollection = true;
         }
 
-        $r = $this->cfxClient->sendRequest('GET', $endpoint, $opts);
-        $obj = json_decode($r->getBody(), true);
-
-        return $this->inflateData($obj, $isCollection);
-    }
-
-    protected function inflateData(array $obj, $isCollection) {
-        $f = $this->cfxClient->getFactory();
+        $r = $this->sendRequest('GET', $endpoint, $opts);
+        $obj = $this->convertV1Data(json_decode($r->getBody(), true), $isCollection);
 
         if (!$isCollection) $obj = [$obj];
-        foreach($obj as $k => $o) $obj[$k] = $f->assetFromV1Data($o);
+        $resource = $this->inflateData($obj, $isCollection);
+
+        return $resource;
+    }
+
+    protected function convertV1Data($assets, $isCollection) {
+        if (!$isCollection) $assets = [$assets];
+        $data = [];
+        foreach ($assets as $asset) {
+            $data[] = [
+                'id' => $asset['asset_symbol'],
+                'type' => $this->resourceType,
+                'attributes' => [
+                    'issuer' => $asset['issuer_ident'],
+                    'name' => $asset['asset_name'],
+                    'type' => $asset['asset_type'],
+                    'statusCode' => $asset['asset_status'],
+                    'statusText' => $asset['asset_status_text'],
+                    'description' => $asset['asset_description'],
+                ]
+            ];
+        }
+
         return $isCollection ?
-            $f->newJsonApiResourceCollection($obj) :
-            $obj[0]
+            $data :
+            $data[0]
         ;
     }
 }

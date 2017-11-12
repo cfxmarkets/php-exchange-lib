@@ -26,7 +26,7 @@ class AssetsClientTest extends \PHPUnit\Framework\TestCase {
 
 
     public function testAssetsClientComposesUriCorrectly() {
-        $httpClient = new \CFX\Test\HttpClient();
+        $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Exchange\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(

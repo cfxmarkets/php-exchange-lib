@@ -17,7 +17,7 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
 
         $assets = $cfx->assets->get();
         $this->assertTrue(count($assets) > 0, "Should have returned a full collection of asset objects");
-        $this->assertInstanceOf("\\CFX\\AssetInterface", $assets[0]);
+        $this->assertInstanceOf("\\CFX\\Exchange\\AssetInterface", $assets[0]);
     }
 
     public function testAssetsClientCanGetAssetById() {
@@ -29,7 +29,7 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
         );
 
         $asset = $cfx->assets->get('id=FR008');
-        $this->assertInstanceOf("\\CFX\\AssetInterface", $asset);
+        $this->assertInstanceOf("\\CFX\\Exchange\\AssetInterface", $asset);
         $this->assertEquals('FR008', $asset->getId());
     }
 }
