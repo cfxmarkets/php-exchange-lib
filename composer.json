@@ -50,7 +50,8 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-v1.1.x": "v1.1.x-dev"
+            "dev-v1.1.x": "v1.1.x-dev",
+            "dev-v1.2.x": "v1.2.x-dev"
         }
     }
 }
