@@ -13,6 +13,12 @@ class ExchangeClientTest extends \PHPUnit\Framework\TestCase {
         $cfx = new \CFX\SDK\Exchange\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
         $this->assertInstanceOf('\\CFX\\SDK\\Exchange\\AssetsClient', $cfx->assets);
     }
+
+    public function testCanGetOrdersSubclient()
+    {
+        $cfx = new \CFX\SDK\Exchange\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
+        $this->assertInstanceOf('\\CFX\\SDK\\Exchange\\OrdersClient', $cfx->orders);
+    }
 }
 
 
