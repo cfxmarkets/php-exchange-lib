@@ -26,8 +26,12 @@ class OrdersClient extends \CFX\Persistence\Rest\AbstractDatasource {
         }
     }
 
-    public function create(array $data=null, $type = null) {
-        return new \CFX\Exchange\Order($this, $data);
+    public function getClassMap()
+    {
+        return [
+            'private' => "\\CFX\\Exchange\\Order",
+            'public' => "\\CFX\\Exchange\\Order",
+        ];
     }
 
     public function get($q=null) {

@@ -4,8 +4,12 @@ namespace CFX\SDK\Exchange;
 class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
     protected $resourceType = 'assets';
 
-    public function create(array $data=null, $type = null) {
-        return new \CFX\Exchange\Asset($this, $data);
+    public function getClassMap()
+    {
+        return [
+            'private' => "\\CFX\\Exchange\\Asset",
+            'public' => "\\CFX\\Exchange\\Asset",
+        ];
     }
 
     public function get($q=null) {
