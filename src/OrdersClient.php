@@ -62,7 +62,7 @@ class OrdersClient extends \CFX\Persistence\Rest\AbstractDatasource {
      *
      * {@inheritdoc}
      */
-    protected function _saveRest($method, $endpoint, \CFX\JsonApi\ResourceInterface $r) {
+    protected function _saveRest($method, $endpoint, \CFX\JsonApi\ResourceInterface $r, $justChanges = false) {
         $body = $this->convertToV1Data($r, true);
 
         if ($method === 'PATCH') {
@@ -75,8 +75,12 @@ class OrdersClient extends \CFX\Persistence\Rest\AbstractDatasource {
 
         // This response does not contain the new Order data in it. Only refreshing ID.
         $data = json_decode($response->getBody(), true);
-        if (!$data && $this->debug) {
-            throw new \RuntimeException("Uh oh! The CFX Api Server seems to have screwed up. It didn't return valid json data. Here's what it returned:\n\n".$response->getBody());
+        if (!$data) {
+            $msg = "Uh oh! The CFX Api Server seems to have screwed up. It didn't return valid json data.";
+            if ($this->debug) {
+                $msg .= " Here's what it returned:\n\n".$response->getBody();
+            }
+            throw new \RuntimeException($msg);
         }
         if (array_key_exists('orderKey', $data)) {
             $this->currentData = [

@@ -13,7 +13,7 @@ class Client extends \CFX\SDK\Exchange\Client
         return $stack;
     }
 
-    public function setNextResponse(\GuzzleHttp\Message\ResponseInterface $r)
+    public function setNextResponse(\Psr\Http\Message\ResponseInterface $r)
     {
         $this->nextResponse[] = $r;
     }
@@ -35,7 +35,9 @@ class Client extends \CFX\SDK\Exchange\Client
 
         if (!$authz_header) $params['headers']['Authorization'] = "Basic ".base64_encode("{$this->getApiKey()}:{$this->getApiKeySecret()}");
 
-        $r = $this->httpClient->createRequest($method, $uri, $params);
+        $r = new \GuzzleHttp\Psr7\Request($method, $uri, $params['headers']);
+        $r = $this->applyRequestOptions($r, $params);
+        unset($params['body'], $params['json'], $params['headers'], $params['query']);
         $this->requestStack[] = $r;
 
         if (count($this->nextResponse) === 0) {

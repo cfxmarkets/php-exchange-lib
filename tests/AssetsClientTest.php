@@ -29,22 +29,22 @@ class AssetsClientTest extends \PHPUnit\Framework\TestCase {
         $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Exchange\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode([self::$testAsset]))
+            \GuzzleHttp\Psr7\stream_for(json_encode([self::$testAsset]))
         ));
         $assets = $cfx->assets->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/v0/assets', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/v0/assets', (string)$r->getUri());
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(self::$testAsset))
+            \GuzzleHttp\Psr7\stream_for(json_encode(self::$testAsset))
         ));
         $assets = $cfx->assets->get('id=FR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/v0/assets?symbol=FR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/v0/assets?symbol=FR008', (string)$r->getUri());
     }
 }

@@ -19,7 +19,7 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
             self::$cnf->getBaseExchangeUri(),
             self::$cnf->getExchangeApiKey(),
             self::$cnf->getExchangeApiKeySecret(),
-            new \GuzzleHttp\Client(['defaults' => [ 'config' => [ 'curl' => [ CURLOPT_SSL_VERIFYHOST => 0, CURLOPT_SSL_VERIFYPEER => false,]],'exceptions' => false,]])
+            new \GuzzleHttp\Client(['http_errors' => false])
         );
 
         foreach (static::$createdResources as $type => $resources) {
@@ -36,8 +36,9 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
             self::$cnf->getBaseExchangeUri(),
             self::$cnf->getExchangeApiKey(),
             self::$cnf->getExchangeApiKeySecret(),
-            new \GuzzleHttp\Client(['defaults' => [ 'config' => [ 'curl' => [ CURLOPT_SSL_VERIFYHOST => 0, CURLOPT_SSL_VERIFYPEER => false,]],'exceptions' => false,]])
+            new \GuzzleHttp\Client(['http_errors' => false])
         );
+        $this->cfx->setDebug(true);
     }
 
     public function testAssetsClientCanGetAllAssets() {

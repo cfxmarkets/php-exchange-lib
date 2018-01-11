@@ -45,12 +45,12 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
         $tests = [
             'id' => [
                 'id=12345',
-                new \GuzzleHttp\Message\Response(200, [], \GuzzleHttp\Stream\Stream::factory(json_encode(Test\Order::$testData[0])))
+                new \GuzzleHttp\Psr7\Response(200, [], \GuzzleHttp\Psr7\stream_for(json_encode(Test\Order::$testData[0])))
 
             ],
             'accountKey' => [
                 'accountKey=12345',
-                new \GuzzleHttp\Message\Response(200, [], \GuzzleHttp\Stream\Stream::factory(json_encode(Test\Order::$testData)))
+                new \GuzzleHttp\Psr7\Response(200, [], \GuzzleHttp\Psr7\stream_for(json_encode(Test\Order::$testData)))
             ],
         ];
 
@@ -64,7 +64,7 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
     public function testCreatesCorrectObjectFromResults()
     {
         $d = Test\Order::$testData[0];
-        $r = new \GuzzleHttp\Message\Response(200, [], \GuzzleHttp\Stream\Stream::factory(json_encode($d)));
+        $r = new \GuzzleHttp\Psr7\Response(200, [], \GuzzleHttp\Psr7\stream_for(json_encode($d)));
         $this->context->setNextResponse($r);
         $order = $this->client->get('id=12345');
         $this->assertInstanceOf("\\CFX\\Exchange\\OrderInterface", $order);
@@ -92,14 +92,14 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
 
     public function testDelete()
     {
-        $r = new \GuzzleHttp\Message\Response(200);
+        $r = new \GuzzleHttp\Psr7\Response(200);
         $this->context->setNextResponse($r);
         $this->client->delete('12345');
         $request = $this->context->getRequestStack();
         $this->assertEquals(1, count($request));
         $request = $request[0];
         $this->assertEquals('DELETE', $request->getMethod());
-        $this->assertEquals(static::$config->getBaseExchangeUri()."/v0/orders", $request->getUrl());
+        $this->assertEquals(static::$config->getBaseExchangeUri()."/v0/orders", $request->getUri());
         $this->assertEquals("orderKey=12345", (string)$request->getBody());
     }
 
@@ -107,7 +107,7 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
     {
         // NOTE: This is a sell order
         $d = Test\Order::$testData[0];
-        $r = new \GuzzleHttp\Message\Response(200, [], \GuzzleHttp\Stream\Stream::factory(json_encode($d)));
+        $r = new \GuzzleHttp\Psr7\Response(200, [], \GuzzleHttp\Psr7\stream_for(json_encode($d)));
         $this->context->setNextResponse($r);
 
         $order = $this->client->create()
@@ -124,7 +124,7 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(1, count($request));
         $request = $request[0];
         $this->assertEquals('POST', $request->getMethod());
-        $this->assertEquals(static::$config->getBaseExchangeUri()."/v0/orders", $request->getUrl());
+        $this->assertEquals(static::$config->getBaseExchangeUri()."/v0/orders", $request->getUri());
 
         $test = [
             'accountKey' => $d['accountKey'],
@@ -157,7 +157,7 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
         $test = [];
         $d['documentKey'] = $test['documentKey'] = '12345';
         $d['vaultKey'] = $test['vaultKey'] = 'abcde';
-        $r = new \GuzzleHttp\Message\Response(200, [], \GuzzleHttp\Stream\Stream::factory(json_encode($d)));
+        $r = new \GuzzleHttp\Psr7\Response(200, [], \GuzzleHttp\Psr7\stream_for(json_encode($d)));
         $this->context->setNextResponse($r);
 
         // Update and save again
@@ -170,7 +170,7 @@ class OrdersClientTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(1, count($request));
         $request = $request[0];
         $this->assertEquals('PUT', $request->getMethod());
-        $this->assertEquals(static::$config->getBaseExchangeUri()."/v0/orders", $request->getUrl());
+        $this->assertEquals(static::$config->getBaseExchangeUri()."/v0/orders", $request->getUri());
 
         $rparams = explode("&", (string)$request->getBody());
         $params = [];
