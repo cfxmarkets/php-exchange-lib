@@ -63,7 +63,7 @@ class OrdersClient extends \CFX\Persistence\Rest\AbstractDatasource {
      * {@inheritdoc}
      */
     protected function _saveRest($method, $endpoint, \CFX\JsonApi\ResourceInterface $r, $justChanges = false) {
-        $body = $this->convertToV1Data($r, true);
+        $body = $this->convertToV1Data($r, $justChanges);
 
         if ($method === 'PATCH') {
             $method = 'PUT';
