@@ -97,9 +97,9 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             }
             throw new \RuntimeException($msg);
         }
-        if (array_key_exists('funding_transfer_key', $data)) {
+        if (array_key_exists('transfer_key', $data)) {
             $this->currentData = [
-                'id' => $data['funding_transfer_key']
+                'id' => $data['transfer_key']
             ];
             $r->restoreFromData();
         }
@@ -150,7 +150,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     "amount" => $row["transfer_amount"],
                     "status" => $row["transfer_status"],
                     "createdOn" => $row["transfer_time"],
-                    "idpKey" => "not-available",
+                    "idpKey" => $row["reference_key"],
                 ],
                 'relationships' => [
                     "fundingSource" => [
@@ -197,7 +197,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             $d["transfer_amount"] = $r->getAmount();
             $d["funding_source_key"] = $r->getType() === "debit" ?  null : $r->getFundingSource()->getId();
             $d["target_funding_source_key"] = $r->getType() === "debit" ?  $r->getFundingSource()->getId() : null;
-            $d["referenceKey"] = $r->getIdpKey();
+            $d["reference_key"] = $r->getIdpKey();
 
             $data[] = $d;
         }
