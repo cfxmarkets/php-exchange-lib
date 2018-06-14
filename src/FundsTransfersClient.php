@@ -60,7 +60,15 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
         }
 
         $r = $this->sendRequest('GET', $endpoint, $opts);
-        $obj = $this->convertFromV1Data(json_decode($r->getBody(), true), $q->requestingCollection(), $q->getLegalEntityId());
+        $data = json_decode($r->getBody(), true);
+        if (!$data) {
+            $msg = "Uh oh! The CFX Api Server seems to have screwed up. It didn't return valid json data.";
+            if ($this->debug) {
+                $msg .= " Here's what it returned:\n\n".$r->getBody();
+            }
+            throw new \RuntimeException($msg);
+        }
+        $obj = $this->convertFromV1Data($data, $q->requestingCollection(), $q->getLegalEntityId());
 
         if (!$q->requestingCollection()) $obj = [$obj];
         $resource = $this->inflateData($obj, $q->requestingCollection());
