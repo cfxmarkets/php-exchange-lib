@@ -203,7 +203,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
 
     protected function parseDSL($q)
     {
-        return FundsTransfersDSLQuery::parse($q);
+        return \CFX\Brokerage\FundsTransfersDSLQuery::parse($q);
     }
 }
 

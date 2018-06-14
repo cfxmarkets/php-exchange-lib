@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a01223853bb49618553c463b58eb223",
+    "content-hash": "a2d5dc72951f32446d793989c57092ab",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
@@ -57,11 +57,17 @@
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "v0.3.1",
+            "version": "v0.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-persistence.git",
-                "reference": "529f2e915c12f4bea3dd6916e2985c48d9e7598b"
+                "reference": "7ede31612bf9c591c892aaf32a9576666ba0d253"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cfxmarkets/php-persistence/zipball/7ede31612bf9c591c892aaf32a9576666ba0d253",
+                "reference": "7ede31612bf9c591c892aaf32a9576666ba0d253",
+                "shasum": ""
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "^1.4.0",
@@ -81,6 +87,7 @@
                     "src/Exceptions.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -92,13 +99,13 @@
             ],
             "description": "A library providing abstract implementations of various persistence layers based on JSON API relational resource concepts.",
             "keywords": [
-                "context",
+                "Context",
                 "database",
                 "datacontext",
                 "datasource",
                 "persistence"
             ],
-            "time": "2018-02-21T03:49:26+00:00"
+            "time": "2018-06-11T22:30:51+00:00"
         },
         {
             "name": "cfxmarkets/php-public-models",
@@ -106,16 +113,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-public-models.git",
-                "reference": "423b75fc6f922d63502d9a0af0af83cb22b3aaf2"
+                "reference": "32786016a34c3848c9c9074bf22dfbcf59c952e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cfxmarkets/php-public-models/zipball/423b75fc6f922d63502d9a0af0af83cb22b3aaf2",
-                "reference": "423b75fc6f922d63502d9a0af0af83cb22b3aaf2",
+                "url": "https://api.github.com/repos/cfxmarkets/php-public-models/zipball/32786016a34c3848c9c9074bf22dfbcf59c952e8",
+                "reference": "32786016a34c3848c9c9074bf22dfbcf59c952e8",
                 "shasum": ""
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "^1.4.0",
+                "cfxmarkets/php-persistence": "v0.3.x-dev",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -156,7 +164,7 @@
                 "exchange",
                 "framework"
             ],
-            "time": "2018-06-11T01:41:52+00:00"
+            "time": "2018-06-14T01:46:02+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -487,16 +495,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +539,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-05-29T17:25:09+00:00"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -915,16 +923,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "e20525b0c2945c7c317fff95660698cb3d2a53bc"
+                "reference": "cecbc684605bb0cc288828eb5d65d93d5c676d3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/e20525b0c2945c7c317fff95660698cb3d2a53bc",
-                "reference": "e20525b0c2945c7c317fff95660698cb3d2a53bc",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/cecbc684605bb0cc288828eb5d65d93d5c676d3c",
+                "reference": "cecbc684605bb0cc288828eb5d65d93d5c676d3c",
                 "shasum": ""
             },
             "require": {
@@ -958,7 +966,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2018-05-28T12:13:49+00:00"
+            "time": "2018-06-11T11:44:00+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1840,6 +1848,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "cfxmarkets/php-persistence": 20,
         "cfxmarkets/php-public-models": 20
     },
     "prefer-stable": false,
