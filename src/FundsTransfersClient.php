@@ -60,8 +60,12 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
         }
 
         $r = $this->sendRequest('GET', $endpoint, $opts);
-        $data = json_decode($r->getBody(), true);
-        if (!$data) {
+        $data = (string)$r->getBody();
+        if ($data === "") {
+            $data = "[]";
+        }
+        $data = json_decode($data, true);
+        if ($data === null) {
             $msg = "Uh oh! The CFX Api Server seems to have screwed up. It didn't return valid json data.";
             if ($this->debug) {
                 $msg .= " Here's what it returned:\n\n".$r->getBody();
