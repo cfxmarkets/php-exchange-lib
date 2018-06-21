@@ -106,7 +106,7 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals($testData['assetSymbol'], $order->getAsset()->getId());
         $this->assertEquals('sell', $order->getSide());
         $this->assertEquals(12345, $order->getLotSize());
-        //$this->assertEquals("12345678", $order->getDocumentKey());
+        $this->assertEquals("12345678", $order->getDocumentKey());
         //$this->assertEquals("5544332211", $order->getBankAccountId());
 
         $this->assertEquals(null, $order->getPriceHigh());
