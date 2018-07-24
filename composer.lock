@@ -1,21 +1,27 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2d5dc72951f32446d793989c57092ab",
+    "content-hash": "fdf8b3e2db84f26e0104e8962d66289f",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "v1.4.3",
+            "version": "v1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
-                "reference": "2fbaba39141a93b7fef5d56582650251d8355e53"
+                "reference": "f64e0531698e7e702c70e7af9ce3e74f1ba7d8e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cfxmarkets/php-jsonapi-objects/zipball/f64e0531698e7e702c70e7af9ce3e74f1ba7d8e8",
+                "reference": "f64e0531698e7e702c70e7af9ce3e74f1ba7d8e8",
+                "shasum": ""
             },
             "require": {
-                "kael-shipman/php-std-traits": "^3.2.4",
+                "kael-shipman/php-std-traits": "^7.0.0",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -38,6 +44,7 @@
                     "src/Exceptions.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -53,26 +60,26 @@
                 "json",
                 "jsonapi"
             ],
-            "time": "2018-04-23T16:33:52+00:00"
+            "time": "2018-06-28T00:37:13+00:00"
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "v0.3.x-dev",
+            "version": "v0.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-persistence.git",
-                "reference": "7ede31612bf9c591c892aaf32a9576666ba0d253"
+                "reference": "d7f6c374cd8b026d5d38108fcff61968416ed892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cfxmarkets/php-persistence/zipball/7ede31612bf9c591c892aaf32a9576666ba0d253",
-                "reference": "7ede31612bf9c591c892aaf32a9576666ba0d253",
+                "url": "https://api.github.com/repos/cfxmarkets/php-persistence/zipball/d7f6c374cd8b026d5d38108fcff61968416ed892",
+                "reference": "d7f6c374cd8b026d5d38108fcff61968416ed892",
                 "shasum": ""
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "^1.4.0",
+                "cfxmarkets/php-jsonapi-objects": "^1.4.5",
                 "guzzlehttp/guzzle": "^6.3.0",
-                "kael-shipman/php-std-traits": "^3.2.1",
+                "kael-shipman/php-std-traits": "^7.0.0",
                 "php": ">=5.5"
             },
             "require-dev": {
@@ -105,7 +112,7 @@
                 "datasource",
                 "persistence"
             ],
-            "time": "2018-06-11T22:30:51+00:00"
+            "time": "2018-07-24T20:43:50+00:00"
         },
         {
             "name": "cfxmarkets/php-public-models",
@@ -113,17 +120,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-public-models.git",
-                "reference": "32786016a34c3848c9c9074bf22dfbcf59c952e8"
+                "reference": "fb50b7234b3aafde6f424e49089c66633b8d3973"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cfxmarkets/php-public-models/zipball/32786016a34c3848c9c9074bf22dfbcf59c952e8",
-                "reference": "32786016a34c3848c9c9074bf22dfbcf59c952e8",
+                "url": "https://api.github.com/repos/cfxmarkets/php-public-models/zipball/fb50b7234b3aafde6f424e49089c66633b8d3973",
+                "reference": "fb50b7234b3aafde6f424e49089c66633b8d3973",
                 "shasum": ""
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "^1.4.0",
-                "cfxmarkets/php-persistence": "v0.3.x-dev",
+                "cfxmarkets/php-jsonapi-objects": "^1.4.5",
+                "cfxmarkets/php-persistence": "^0.4.0 || ^0.3.3",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -164,7 +171,7 @@
                 "exchange",
                 "framework"
             ],
-            "time": "2018-06-14T01:46:02+00:00"
+            "time": "2018-07-24T20:59:11+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -342,16 +349,16 @@
         },
         {
             "name": "kael-shipman/php-std-traits",
-            "version": "v3.2.6",
+            "version": "v7.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kael-shipman/php-std-traits.git",
-                "reference": "a661ea6698a672a3c7d6f63a91f832018caee223"
+                "reference": "c21ddfc9dc682e6589e52f3717df81e0d2972c0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kael-shipman/php-std-traits/zipball/a661ea6698a672a3c7d6f63a91f832018caee223",
-                "reference": "a661ea6698a672a3c7d6f63a91f832018caee223",
+                "url": "https://api.github.com/repos/kael-shipman/php-std-traits/zipball/c21ddfc9dc682e6589e52f3717df81e0d2972c0e",
+                "reference": "c21ddfc9dc682e6589e52f3717df81e0d2972c0e",
                 "shasum": ""
             },
             "require": {
@@ -385,7 +392,7 @@
             "keywords": [
                 "traits"
             ],
-            "time": "2018-01-12T10:22:22+00:00"
+            "time": "2018-06-28T17:31:46+00:00"
         },
         {
             "name": "psr/http-message",
@@ -543,22 +550,22 @@
         },
         {
             "name": "phar-io/manifest",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
-                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0"
+                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/manifest/zipball/2df402786ab5368a0169091f61a7c1e0eb6852d0",
-                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
+                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-phar": "*",
-                "phar-io/version": "^1.0.1",
+                "phar-io/version": "^2.0",
                 "php": "^5.6 || ^7.0"
             },
             "type": "library",
@@ -594,20 +601,20 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-03-05T18:14:27+00:00"
+            "time": "2018-07-08T19:23:20+00:00"
         },
         {
             "name": "phar-io/version",
-            "version": "1.0.1",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df"
+                "reference": "45a2ec53a73c70ce41d55cedef9063630abaf1b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/a70c0ced4be299a63d32fa96d9281d03e94041df",
-                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/45a2ec53a73c70ce41d55cedef9063630abaf1b6",
+                "reference": "45a2ec53a73c70ce41d55cedef9063630abaf1b6",
                 "shasum": ""
             },
             "require": {
@@ -641,7 +648,7 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2017-03-05T17:38:23+00:00"
+            "time": "2018-07-08T19:19:57+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1109,16 +1116,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.2.4",
+            "version": "7.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "00bc0b93f0ff4f557e9ea766557fde96da9a03dd"
+                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/00bc0b93f0ff4f557e9ea766557fde96da9a03dd",
-                "reference": "00bc0b93f0ff4f557e9ea766557fde96da9a03dd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e878aff7917ef66e702e03d1359b16eee254e2c",
+                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c",
                 "shasum": ""
             },
             "require": {
@@ -1129,12 +1136,12 @@
                 "ext-mbstring": "*",
                 "ext-xml": "*",
                 "myclabs/deep-copy": "^1.7",
-                "phar-io/manifest": "^1.0.1",
-                "phar-io/version": "^1.0",
+                "phar-io/manifest": "^1.0.2",
+                "phar-io/version": "^2.0",
                 "php": "^7.1",
                 "phpspec/prophecy": "^1.7",
                 "phpunit/php-code-coverage": "^6.0.7",
-                "phpunit/php-file-iterator": "^2.0",
+                "phpunit/php-file-iterator": "^2.0.1",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.0",
                 "sebastian/comparator": "^3.0",
@@ -1189,7 +1196,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-06-05T03:40:05+00:00"
+            "time": "2018-07-15T05:20:50+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1238,16 +1245,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "3.0.0",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ed5fd2281113729f1ebcc64d101ad66028aeb3d5"
+                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ed5fd2281113729f1ebcc64d101ad66028aeb3d5",
-                "reference": "ed5fd2281113729f1ebcc64d101ad66028aeb3d5",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
+                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
                 "shasum": ""
             },
             "require": {
@@ -1298,7 +1305,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-04-18T13:33:00+00:00"
+            "time": "2018-07-12T15:12:46+00:00"
         },
         {
             "name": "sebastian/diff",

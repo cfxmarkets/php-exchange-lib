@@ -154,7 +154,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     "amount" => $row["transfer_amount"],
                     "status" => $row["transfer_status"],
                     "createdOn" => $row["transfer_time"],
-                    "idpKey" => $row["reference_key"],
+                    "idpKey" => $row["reference_key"] ?? null,
                 ],
                 'relationships' => [
                     "fundingSource" => [
