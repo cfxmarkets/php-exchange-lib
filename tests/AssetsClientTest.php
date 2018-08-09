@@ -22,6 +22,9 @@ class AssetsClientTest extends \PHPUnit\Framework\TestCase {
         "asset_status_text" => "open",
         "amount_reserved" => "0",
         "amount_investors" => "0",
+        "platform" => null,
+        "version" => null,
+        "resolutionUri" => null,
     ];
 
 
