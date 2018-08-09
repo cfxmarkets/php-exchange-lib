@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa012bde9cd6783d2b4d656f141f2dae",
+    "content-hash": "3eac1e60f084cca78980812b87932a6c",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
@@ -116,7 +116,7 @@
         },
         {
             "name": "cfxmarkets/php-public-models",
-            "version": "v1.7.x-dev",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-public-models.git",
@@ -1854,9 +1854,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "cfxmarkets/php-public-models": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
