@@ -46,9 +46,9 @@ class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     'statusCode' => $asset['asset_status'],
                     'statusText' => $asset['asset_status_text'],
                     'description' => $asset['asset_description'],
-                    "platform" => $asset["platform"],
-                    "platformVersion" => $asset["version"],
-                    "resolutionUri" => $asset["resolutionUri"],
+                    "platform" => $asset["platform"] ?? null,
+                    "platformVersion" => $asset["version"] ?? null,
+                    "resolutionUri" => $asset["resolutionUri"] ?? null,
                 ]
             ];
         }
