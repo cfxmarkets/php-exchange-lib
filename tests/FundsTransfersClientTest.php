@@ -31,6 +31,7 @@ class FundsTransfersClientTest extends \PHPUnit\Framework\TestCase
             "type" => "debit",
             "amount" => 54321,
             "idpKey" => "aaaabbbbccccddddeeee",
+            "memo" => "Withdraw from Deposit Account",
         ],
         "relationships" => [
             "legalEntity" => [
@@ -139,6 +140,7 @@ class FundsTransfersClientTest extends \PHPUnit\Framework\TestCase
         $expected["funding_source_key"] = $transfer->getType() === "debit" ?  null : $transfer->getFundingSource()->getId();
         $expected["target_funding_source_key"] = $transfer->getType() === "debit" ?  $transfer->getFundingSource()->getId() : null;
         $expected["reference_key"] = $transfer->getIdpKey();
+        $expected["transfer_memo"] = $transfer->getMemo();
 
         $expected = http_build_query($expected);
         $this->assertEquals($expected, (string)$req->getBody());

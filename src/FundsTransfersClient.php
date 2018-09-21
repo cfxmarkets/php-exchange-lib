@@ -155,6 +155,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     "status" => $row["transfer_status"],
                     "createdOn" => $row["transfer_time"],
                     "idpKey" => $row["reference_key"] ?? null,
+                    "memo" => $row["transfer_memo"],
                 ],
                 'relationships' => [
                     "fundingSource" => [
@@ -189,11 +190,6 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
 
         foreach ($resource as $r) {
             $d = [];
-            if ($onlyChanges) {
-                $changes = $r->getChanges();
-            } else {
-                $changes = $r->jsonSerialize();
-            }
 
             $d["account_key"] = $r->getLegalEntity()->getId();
             $d["target_account_key"] = $d["account_key"];
@@ -202,6 +198,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             $d["funding_source_key"] = $r->getType() === "debit" ?  null : $r->getFundingSource()->getId();
             $d["target_funding_source_key"] = $r->getType() === "debit" ?  $r->getFundingSource()->getId() : null;
             $d["reference_key"] = $r->getIdpKey();
+            $d["transfer_memo"] = $r->getMemo();
 
             $data[] = $d;
         }
