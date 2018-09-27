@@ -122,12 +122,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-public-models.git",
-                "reference": "b60432847cddfd478451433543a22c0feb817e70"
+                "reference": "162266289ab8324fa7f1360283946cd8dfe8a593"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cfxmarkets/php-public-models/zipball/b60432847cddfd478451433543a22c0feb817e70",
-                "reference": "b60432847cddfd478451433543a22c0feb817e70",
+                "url": "https://api.github.com/repos/cfxmarkets/php-public-models/zipball/162266289ab8324fa7f1360283946cd8dfe8a593",
+                "reference": "162266289ab8324fa7f1360283946cd8dfe8a593",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,7 @@
                 "exchange",
                 "framework"
             ],
-            "time": "2018-09-21T14:14:36+00:00"
+            "time": "2018-09-27T18:48:42+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
