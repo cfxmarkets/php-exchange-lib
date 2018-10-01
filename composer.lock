@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "v1.4.9",
+            "version": "v1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
-                "reference": "2777dc0d67c835ef767a6b27a693b91e66525942"
+                "reference": "6f6a75d484cdefb7917476fd621f94eec6576bdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cfxmarkets/php-jsonapi-objects/zipball/2777dc0d67c835ef767a6b27a693b91e66525942",
-                "reference": "2777dc0d67c835ef767a6b27a693b91e66525942",
+                "url": "https://api.github.com/repos/cfxmarkets/php-jsonapi-objects/zipball/6f6a75d484cdefb7917476fd621f94eec6576bdf",
+                "reference": "6f6a75d484cdefb7917476fd621f94eec6576bdf",
                 "shasum": ""
             },
             "require": {
@@ -60,20 +60,20 @@
                 "json",
                 "jsonapi"
             ],
-            "time": "2018-09-20T01:58:44+00:00"
+            "time": "2018-10-01T06:26:43+00:00"
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "v0.4.2",
+            "version": "v0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-persistence.git",
-                "reference": "dcc69844c19b4371e36ead9c9e42470e7dbdacf1"
+                "reference": "e1369d13ba1e53d33955681c87e6a2698a07075f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cfxmarkets/php-persistence/zipball/dcc69844c19b4371e36ead9c9e42470e7dbdacf1",
-                "reference": "dcc69844c19b4371e36ead9c9e42470e7dbdacf1",
+                "url": "https://api.github.com/repos/cfxmarkets/php-persistence/zipball/e1369d13ba1e53d33955681c87e6a2698a07075f",
+                "reference": "e1369d13ba1e53d33955681c87e6a2698a07075f",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "datasource",
                 "persistence"
             ],
-            "time": "2018-09-17T22:52:46+00:00"
+            "time": "2018-10-01T21:39:47+00:00"
         },
         {
             "name": "cfxmarkets/php-public-models",

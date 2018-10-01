@@ -72,7 +72,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             }
             throw new \RuntimeException($msg);
         }
-        $obj = $this->convertFromV1Data($data, $q->requestingCollection(), $q->getLegalEntityId());
+        $obj = $this->convertFromV1Data($data, $q->requestingCollection());
 
         if (!$q->requestingCollection()) $obj = [$obj];
         $resource = $this->inflateData($obj, $q->requestingCollection());
@@ -101,7 +101,10 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             }
             throw new \RuntimeException($msg);
         }
-        if (array_key_exists('transfer_key', $data)) {
+        if (array_key_exists("transfer", $data)) {
+            $this->currentData = $this->convertFromV1Data($data["transfer"], false);
+            $r->restoreFromData();
+        } elseif (array_key_exists('transfer_key', $data)) {
             $this->currentData = [
                 'id' => $data['transfer_key']
             ];
