@@ -12,7 +12,8 @@ class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
         ];
     }
 
-    public function get($q=null) {
+    public function get($q=null, string $sort = null, ?array $pagination = null)
+    {
         $opts = [];
         $endpoint = "/".$this->resourceType;
         if ($q) {

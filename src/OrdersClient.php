@@ -34,7 +34,8 @@ class OrdersClient extends \CFX\Persistence\Rest\AbstractDatasource {
         ];
     }
 
-    public function get($q=null) {
+    public function get($q=null, string $sort = null, ?array $pagination = null)
+    {
         $opts = [ 'query' => []];
         $endpoint = "/".$this->resourceType;
         $q = $this->parseDSL($q);

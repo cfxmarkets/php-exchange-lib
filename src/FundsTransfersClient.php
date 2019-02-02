@@ -41,7 +41,8 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
      * Can optionally use fundingSourceId to filter transfers by specific source
      * For now, can't get by transferID
      */
-    public function get($q=null) {
+    public function get($q=null, string $sort = null, ?array $pagination = null)
+    {
         $opts = [ 'query' => []];
         $endpoint = "/funding/transfers";
         $q = $this->parseDSL($q);
