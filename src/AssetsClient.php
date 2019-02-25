@@ -12,7 +12,8 @@ class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
         ];
     }
 
-    public function get($q=null) {
+    public function get($q=null, string $sort = null, ?array $pagination = null)
+    {
         $opts = [];
         $endpoint = "/".$this->resourceType;
         if ($q) {
@@ -46,6 +47,11 @@ class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     'statusCode' => $asset['asset_status'],
                     'statusText' => $asset['asset_status_text'],
                     'description' => $asset['asset_description'],
+                    "platform" => $asset["platform"] ?? null,
+                    "platformVersion" => $asset["version"] ?? null,
+                    "resolutionUri" => $asset["resolutionUri"] ?? null,
+                    "exemptionType" => $asset["exemption_type"] ?? null,
+                    "issuanceCloseDate" => $asset["close_date"] ?? null,
                 ]
             ];
         }

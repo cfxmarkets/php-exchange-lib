@@ -41,7 +41,8 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
      * Can optionally use fundingSourceId to filter transfers by specific source
      * For now, can't get by transferID
      */
-    public function get($q=null) {
+    public function get($q=null, string $sort = null, ?array $pagination = null)
+    {
         $opts = [ 'query' => []];
         $endpoint = "/funding/transfers";
         $q = $this->parseDSL($q);
@@ -72,7 +73,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             }
             throw new \RuntimeException($msg);
         }
-        $obj = $this->convertFromV1Data($data, $q->requestingCollection(), $q->getLegalEntityId());
+        $obj = $this->convertFromV1Data($data, $q->requestingCollection());
 
         if (!$q->requestingCollection()) $obj = [$obj];
         $resource = $this->inflateData($obj, $q->requestingCollection());
@@ -101,7 +102,10 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             }
             throw new \RuntimeException($msg);
         }
-        if (array_key_exists('transfer_key', $data)) {
+        if (array_key_exists("transfer", $data)) {
+            $this->currentData = $this->convertFromV1Data($data["transfer"], false);
+            $r->restoreFromData();
+        } elseif (array_key_exists('transfer_key', $data)) {
             $this->currentData = [
                 'id' => $data['transfer_key']
             ];
@@ -154,7 +158,8 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     "amount" => $row["transfer_amount"],
                     "status" => $row["transfer_status"],
                     "createdOn" => $row["transfer_time"],
-                    "idpKey" => $row["reference_key"],
+                    "idpKey" => $row["reference_key"] ?? null,
+                    "memo" => $row["transfer_memo"],
                 ],
                 'relationships' => [
                     "fundingSource" => [
@@ -189,11 +194,6 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
 
         foreach ($resource as $r) {
             $d = [];
-            if ($onlyChanges) {
-                $changes = $r->getChanges();
-            } else {
-                $changes = $r->jsonSerialize();
-            }
 
             $d["account_key"] = $r->getLegalEntity()->getId();
             $d["target_account_key"] = $d["account_key"];
@@ -202,6 +202,7 @@ class FundsTransfersClient extends \CFX\Persistence\Rest\AbstractDatasource {
             $d["funding_source_key"] = $r->getType() === "debit" ?  null : $r->getFundingSource()->getId();
             $d["target_funding_source_key"] = $r->getType() === "debit" ?  $r->getFundingSource()->getId() : null;
             $d["reference_key"] = $r->getIdpKey();
+            $d["transfer_memo"] = $r->getMemo();
 
             $data[] = $d;
         }

@@ -118,6 +118,15 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
         $order = $this->cfx->orders->get('id='.$order->getId());
         $this->assertEquals('cancelled', $order->getStatus());
     }
+
+    public function testAssetsClientCanGetCryptoAssetById()
+    {
+        $asset = $this->cfx->assets->get('id=BCAP');
+        $this->assertInstanceOf("\\CFX\\Exchange\\AssetInterface", $asset);
+        $this->assertSame(null, $asset->getPlatform());
+        $this->assertSame(null, $asset->getPlatformVersion());
+        $this->assertContains("p2p://ethereum/", $asset->getResolutionUri());
+    }
 }
 
 

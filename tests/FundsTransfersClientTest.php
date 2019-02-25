@@ -31,6 +31,7 @@ class FundsTransfersClientTest extends \PHPUnit\Framework\TestCase
             "type" => "debit",
             "amount" => 54321,
             "idpKey" => "aaaabbbbccccddddeeee",
+            "memo" => "Withdraw from Deposit Account",
         ],
         "relationships" => [
             "legalEntity" => [
@@ -73,7 +74,7 @@ class FundsTransfersClientTest extends \PHPUnit\Framework\TestCase
             static::$cfx->fundsTransfers->get("id=abcde12345");
             $this->fail("Should have thrown an exception for query with ID");
         } catch (\CFX\Persistence\BadQueryException $e) {
-            $this->assertContains("unacceptable fields or values found", strtolower($e->getMessage()));
+            $this->assertContains("unacceptable fields, operators, or values found.", strtolower($e->getMessage()));
             $this->assertContains("offending expression: `id=abcde12345`", strtolower($e->getMessage()));
         }
 
@@ -138,7 +139,8 @@ class FundsTransfersClientTest extends \PHPUnit\Framework\TestCase
         $expected["transfer_amount"] = $transfer->getAmount();
         $expected["funding_source_key"] = $transfer->getType() === "debit" ?  null : $transfer->getFundingSource()->getId();
         $expected["target_funding_source_key"] = $transfer->getType() === "debit" ?  $transfer->getFundingSource()->getId() : null;
-        $expected["referenceKey"] = $transfer->getIdpKey();
+        $expected["reference_key"] = $transfer->getIdpKey();
+        $expected["transfer_memo"] = $transfer->getMemo();
 
         $expected = http_build_query($expected);
         $this->assertEquals($expected, (string)$req->getBody());
