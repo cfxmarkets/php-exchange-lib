@@ -125,7 +125,7 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
         $this->assertInstanceOf("\\CFX\\Exchange\\AssetInterface", $asset);
         $this->assertSame(null, $asset->getPlatform());
         $this->assertSame(null, $asset->getPlatformVersion());
-        $this->assertEquals("p2p://ethereum/0x860c8c69a303Aaca78C1E12b85510533173F56Cf", $asset->getResolutionUri());
+        $this->assertContains("p2p://ethereum/", $asset->getResolutionUri());
     }
 }
 
