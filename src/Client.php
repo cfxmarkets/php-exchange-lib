@@ -20,5 +20,26 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext implements Client
     protected function composeUri($endpoint) {
         return $this->getBaseUri()."/v{$this->getApiVersion()}$endpoint";
     }
+
+    protected function processResponse($r)
+    {
+        try {
+            return parent::processResponse($r);
+
+        // We need to make some exceptions for known responses, since the exchange server
+        // doesn't actually work right
+        } catch (\RuntimeException $e) {
+            // Assets
+            if (strpos(strtolower($e->getMessage()), "invalid asset symbol") !== false) {
+                throw new \CFX\Persistence\ResourceNotFoundException(
+                    "The resource you're looking for wasn't found in our system"
+                );
+
+            // Anything else, we just rethrow
+            } else {
+                throw $e;
+            }
+        }
+    }
 }
 
