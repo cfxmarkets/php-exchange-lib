@@ -55,6 +55,8 @@ class AssetsClient extends \CFX\Persistence\Rest\AbstractDatasource {
                     "issuanceCloseDate" => $asset["close_date"] ?? null,
                     "commonName" => $asset["commonName"] ?? null,
                     "infoUrl" => $asset["infoUrl"] ?? null,
+                    "usTradable" => $asset["usTradable"] ?? false,
+                    "accreditedOnly" => $asset["accreditedOnly"] ?? true,
                 ]
             ];
         }
